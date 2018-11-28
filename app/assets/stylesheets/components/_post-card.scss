@@ -1,0 +1,17 @@
+.post-card {
+  display: flex;
+  border-top: 1px solid rgba(35, 35, 35, 0.3);
+  margin-top: 15px;
+}
+
+.post-photo {
+  height: 200px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.post-title-n-content {
+  margin-left: 50px;
+  width: 75%;
+}
