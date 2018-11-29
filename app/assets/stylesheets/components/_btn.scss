@@ -2,9 +2,9 @@
   background-color: rgba(0, 0, 0, 0);
   color: black;
   font-weight: lighter;
-  border: 1px solid black;
+  border: 1px solid rgba(50, 50, 50, 0.3);
   padding: 10px 15px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -13,4 +13,13 @@
   font-weight: bolder;
   border: 1px solid black;
   padding: 10px 15px;
+}
+
+.btn {
+  font-weight: lighter;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: red;
 }

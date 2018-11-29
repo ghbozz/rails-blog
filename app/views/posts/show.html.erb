@@ -17,7 +17,7 @@
     <ul class="list-unstyled">
       <% @post.comments.each do |comment| %>
         <% if comment.user == current_user || current_user.admin %>
-          <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %> <%= link_to 'delete', post_comment_path(comment), method: :delete  %></li>
+          <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %> <%= link_to 'delete', comment_path(comment), method: :delete  %></li>
         <% else %>
           <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %></li>
         <% end %>

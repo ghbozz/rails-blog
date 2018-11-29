@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts do
-    resources :comments, only: [:new, :create, :destroy]
+    resources :comments, only: [:new, :create]
   end
+
+  resources :comments, only: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

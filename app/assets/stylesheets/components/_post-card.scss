@@ -1,5 +1,6 @@
 .post-card {
   display: flex;
+  align-items: center;
   border-radius: 4px;
   border-top: 1px solid rgba(35, 35, 35, 0.3);
   margin-top: 15px;
@@ -14,7 +15,7 @@
   margin-top: 15px;
   color: black;
   font-size: 0.8em;
-  background-color: rgba(100, 100, 100, 0.1);
+  background-color: rgba(210, 26, 31, 0.2);
 }
 
 .post-card a {
@@ -22,8 +23,8 @@
 }
 
 .post-photo {
-  height: 200px;
-  width: 250px;
+  height: 230px;
+  width: 270px;
   background-size: cover;
   background-position: center;
   border-radius: 4px;
