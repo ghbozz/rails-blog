@@ -1,0 +1,16 @@
+.btn-primary {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  font-weight: lighter;
+  border: 1px solid black;
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  font-weight: bolder;
+  border: 1px solid black;
+  padding: 10px 15px;
+}
