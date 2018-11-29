@@ -3,13 +3,15 @@
 <div class="container">
   <div class="posts-wrapper">
     <% @posts.each do |post| %>
-      <div class="post-card">
-        <div class="post-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= post.photo %>);"></div>
-        <div class="post-title-n-content">
-          <h2><%= post.title %></h2>
-          <p><%= post.content.split(' ').first(50).join(' ') %></p>
+      <%= link_to post_path(post) do %>
+        <div class="post-card">
+          <div class="post-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= post.photo %>);"></div>
+          <div class="post-title-n-content">
+            <h2><%= post.title %></h2>
+            <p><%= post.content.split(' ').first(50).join(' ') %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

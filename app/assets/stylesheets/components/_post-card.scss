@@ -2,6 +2,16 @@
   display: flex;
   border-top: 1px solid rgba(35, 35, 35, 0.3);
   margin-top: 15px;
+  color: black;
+  font-size: 0.8em;
+}
+
+.post-card a {
+  text-decoration: none;
+}
+
+.post-card:hover {
+  text-decoration: none;
 }
 
 .post-photo {
@@ -14,4 +24,9 @@
 .post-title-n-content {
   margin-left: 50px;
   width: 75%;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
