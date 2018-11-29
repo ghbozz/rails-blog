@@ -9,7 +9,8 @@
           <div class="post-title-n-content">
             <h2><%= post.title %></h2>
             <p><%= post.content.split(' ').first(50).join(' ') %></p>
-            <span><%= time_ago_in_words(post.created_at) %> || <%= post.comments.count %> Comments</span>
+            <span>Posted by <strong><%= post.user.email.split('@')[0] %></strong></span>
+            <span><%= time_ago_in_words(post.created_at) %> ago || <%= post.comments.count %> Comments</span>
           </div>
         </div>
       <% end %>
