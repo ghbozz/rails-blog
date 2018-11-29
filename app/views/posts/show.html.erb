@@ -6,4 +6,25 @@
     <br>
     <p><%= @post.content %></p>
   </div>
+  <% if current_user.admin %>
+    <%= link_to 'delete', post_path, method: :delete  %>
+  <% end %>
+
+  <br>
+  <% if @post.comments.any? %>
+  <h3>Comments section</h3>
+  <% end %>
+  <div class="comments-wrapper">
+    <ul class="list-unstyled">
+      <% @post.comments.each do |comment| %>
+        <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %></li>
+      <% end %>
+    </ul>
+  </div>
+  <h2>Leave a comment</h2>
+  <%= simple_form_for [@post, @comment] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.submit "send", class: "btn btn-primary" %>
+  <% end %>
 </div>
