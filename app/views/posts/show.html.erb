@@ -6,8 +6,8 @@
     <p><%= @post.content %></p>
   </div>
   <% if current_user.admin %>
-    <%= link_to 'delete', post_path, method: :delete  %>
-    <%= link_to 'edit', edit_post_path(@post)  %>
+    <%= link_to 'delete', post_path, method: :delete, class: 'btn btn-default'  %>
+    <%= link_to 'edit', edit_post_path(@post), class: 'btn btn-default'  %>
   <% end %>
 
   <br>
