@@ -9,10 +9,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     @comment.post = Post.find(params[:post_id])
+
     if @comment.save
-      redirect_to post_path(Post.find(params[:post_id]))
+      respond_to do |format|
+        format.html { redirect_to post_path(@comment.post) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'posts/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
