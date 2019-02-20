@@ -11,20 +11,20 @@
   <% end %>
 
   <br>
-  <% if @post.comments.any? %>
-  <h3>Comments section</h3>
-  <% end %>
-  <div class="comments-wrapper">
-    <ul class="list-unstyled">
-      <% @post.comments.each do |comment| %>
-        <% if comment.user == current_user || current_user.admin %>
-          <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %> <%= link_to 'delete', comment_path(comment), method: :delete  %></li>
-        <% else %>
-          <li> <strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %></li>
+
+  <div id="comments">
+    <h2>Comments Section</h2>
+    <% if @post.comments.blank? %>
+      Be the first to leave a comment
+    <% else %>
+      <ul class="list-unstyled">
+        <% @post.comments.each do |comment| %>
+          <li><%= render 'comments/show', comment: comment %></li>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
+
   <h2>Leave a comment</h2>
   <%= simple_form_for [@post, @comment] do |f| %>
     <%= f.input :title %>
