@@ -1,3 +1,5 @@
-<% if current_user.admin %>
+<% if current_user.admin || comment.user == current_user %>
   <p><strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %> <%= link_to 'delete', comment_path(comment), method: :delete %></p>
+<% else %>
+  <p><strong><%= comment.user.email.split('@')[0] %></strong> - <%= comment.content %></p>
 <% end %>
