@@ -10,22 +10,32 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.post = Post.find(params[:post_id])
 
-    if @comment.save
+    if @comment.save!
       respond_to do |format|
         format.html { redirect_to post_path(@comment.post) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js { } # <-- will render `app/views/reviews/create.js.erb`
       end
     else
       respond_to do |format|
         format.html { render 'posts/show' }
-        format.js  # <-- idem
+        format.js { } # <-- idem
       end
     end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to post_path(@comment.post)
+    @comment_id = @comment.id
+    if @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to post_path(@comment.post) }
+        format.js { } # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'posts/show' }
+        format.js { } # <-- idem
+      end
+    end
   end
 
   private
