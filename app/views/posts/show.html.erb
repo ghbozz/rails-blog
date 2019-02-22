@@ -26,10 +26,6 @@
   </div>
 
   <h2>Leave a comment</h2>
-  <%= simple_form_for([@post, @comment], remote: true) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.submit "send", class: "btn btn-primary" %>
-  <% end %>
+  <%= render 'comments/form', post: @post, comment: @comment %>
   <br>
 </div>

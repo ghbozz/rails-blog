@@ -1,9 +1,17 @@
+
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
 function addComment(commentHTML) {
   const comments = document.getElementById('comments');
   comments.insertAdjacentHTML('beforeend', commentHTML);
 }
 
-
-addComment('<%= j render "comments/show", comment: @comment %>');
-console.log('coucou')
-
+<% if @comment.errors.any? %>
+  refreshForm('<%= j render "comments/form", post: @post, comment: @comment %>');
+<% else %>
+  addComment('<%= j render "comments/show", comment: @comment %>');
+  refreshForm('<%= j render "comments/form", post: @post, comment: Comment.new %>');
+<% end %>

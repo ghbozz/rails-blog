@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
     @comment.user = current_user
-    @comment.post = Post.find(params[:post_id])
+    @comment.post = @post
 
     if @comment.save!
       respond_to do |format|
