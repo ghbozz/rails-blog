@@ -31,6 +31,9 @@
   <% if current_user %>
     <h2>Leave a comment</h2>
     <%= render 'comments/form', post: @post, comment: @comment %>
+  <% else %>
+    <%= link_to 'Login to leave a comment', new_user_session_path %>
   <% end %>
+  <br>
   <br>
 </div>
