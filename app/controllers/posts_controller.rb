@@ -11,7 +11,7 @@ class PostsController < ApplicationController
         sql_query = "title ILIKE :query OR content ILIKE :query"
         @posts = Post.where(sql_query, query: "%#{params[:query][:title]}%")
       elsif params[:query][:user].present?
-        posts_tmp = Post.all
+        posts_tmp = Post.all.order('created_at DESC')
         @posts = posts_tmp.select { |post| post.user.email == params[:query][:user] }
       else
         @posts = Post.all.order('created_at DESC')
