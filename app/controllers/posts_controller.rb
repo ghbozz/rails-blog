@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:query]
-      search(params[:query])
+      search_posts(params[:query])
     else
       @posts = Post.all.order('created_at DESC')
     end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   private
 
-  def search(query)
+  def search_posts(query)
     if query[:title].present? && query[:user].present?
       sql_query = "title ILIKE :query OR content ILIKE :query"
       posts_tmp = Post.where(sql_query, query: "%#{query[:title]}%")
