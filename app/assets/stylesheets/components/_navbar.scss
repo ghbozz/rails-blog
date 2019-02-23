@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 300px;
+  margin-left: 75px;
 }
 
 /* Basic navbar item */
@@ -90,4 +90,10 @@
 .right-nav {
   display: flex;
   align-items: center;
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }

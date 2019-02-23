@@ -1,31 +1,31 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "https://cdn.freebiesupply.com/logos/large/2x/rockstar-logo-black-and-white.png", height: 50 %>
-  <% end %>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <% if user_signed_in? %>
-      <div class="navbarbtn">
-        <% if current_user.admin %>
-          <div class="btn"><%= link_to'Add post', new_post_path  %></div>
-        <% end %>
-        <div class="btn"><%= link_to 'All posts', posts_path %></div>
-        <div class="btn">News</div>
-      </div>
-      <!-- Login link (when logged out) -->
+  <div class="left-nav">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "https://cdn.freebiesupply.com/logos/large/2x/rockstar-logo-black-and-white.png", height: 50 %>
     <% end %>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <% if user_signed_in? %>
+        <div class="navbarbtn">
+          <% if current_user.admin %>
+            <div class="btn"><%= link_to'Add post', new_post_path  %></div>
+          <% end %>
+          <div class="btn"><%= link_to 'All posts', posts_path %></div>
+          <div class="btn">News</div>
+        </div>
+        <!-- Login link (when logged out) -->
+      <% end %>
+    </div>
   </div>
 
   <div class="right-nav">
-      <%= form_tag posts_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search..."
-        %>
-      <% end %>
+    <%= simple_form_for :query, url: posts_path, method: :get, html: { class: "form-inline" } do |f| %>
+        <%= f.input :title, placeholder: "search by title", label: false %>
+        <%= f.input :user, placeholder: "search by user", label: false %>
+        <%= f.button :submit, '' %>
+    <% end %>
 
 
     <div class="log">
