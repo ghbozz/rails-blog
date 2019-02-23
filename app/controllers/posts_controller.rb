@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    if params[:query]
+      sql_query = "title ILIKE :query OR content ILIKE :query"
+      @posts = Post.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @posts = Post.all.order('created_at DESC')
+    end
   end
 
   def show

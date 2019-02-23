@@ -27,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 250px;
 }
 
 /* Basic navbar item */
@@ -84,4 +85,9 @@
 .navbarbtn a:hover {
   text-decoration: none;
   color: red
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
 }
