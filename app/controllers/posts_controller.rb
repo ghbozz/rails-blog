@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     if params[:query]
-      raise
       sql_query = "title ILIKE :query OR content ILIKE :query"
       @posts = Post.where(sql_query, query: "%#{params[:query]}%")
     else
