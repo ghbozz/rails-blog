@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.post = @post
 
-    if @comment.save!
+    if @comment.save
       respond_to do |format|
         format.html { redirect_to post_path(@comment.post) }
         format.js { } # <-- will render `app/views/reviews/create.js.erb`
